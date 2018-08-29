@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>REsize</title>
+    <script src="jquery-3.3.1.js"> </script>
+    <script src="jquery.maphilight.js"></script>
+    <script src="imageMapResizer.min.js"></script>
+    <style>
+       img{
+           width: 100%;
+       }
+       a{
+           font-size: 20px;
+           font-family: cursive;
+       }
+    </style>
+</head>
+
+<body>
+
+
+    <img src="40343029_223277248536217_6269761755115683840_n.jpg" usemap="#image-map" class="map">
+
+    <map name="image-map">
+        <area target="_blank" id="ktmhighlight" alt="google" title="google"  data-toggle="modal" data-target="#ktm" coords="55,783,323,879" shape="rect" >
+        <area target="_blank" id="dhighlight" alt="bing" title="bing" data-toggle="modal" data-target="#dl" coords="646,712,435,802" shape="rect" data-maphilight='{"strokeColor":"66009969","strokeWidth":5,"fillColor":"00800059","fillOpacity":0.6}'>
+        <area target="" alt="kuri" title="kuri" data-toggle="modal" data-target="#kuri" coords="785,561,980,479" shape="rect">
+    </map>
+
+
+    <a id="ktmLink" href="#">highlight ktm</a> <br>
+    <a id="dLink" href="#">highlight dhulikhel</a>
+
+    <script type="text/javascript">
+    $(function () {
+            $('.map').maphilight();
+
+            $('#ktmLink').mouseover(function (e) {
+                $('#ktmhighlight').mouseover();
+            }).mouseout(function (e) {
+                $('#ktmhighlight').mouseout();
+            }).click(function (e) { e.preventDefault(); });
+
+            $('#dLink').mouseover(function (e) {
+                $('#dhighlight').mouseover();
+            }).mouseout(function (e) {
+                $('#dhighlight').mouseout();
+            }).click(function (e) { e.preventDefault(); });
+
+             $(document).ready(function () {
+                    $('map').imageMapResize();
+            });
+        });
+    </script>
+</body>
+
+</html>
